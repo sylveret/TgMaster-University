@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG Master Alumni - Communauté des Anciens</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPnJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==') repeat;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .alumni-card .card-body {
+            padding: 1.5rem;
+        }
+        .alumni-card .alumni-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+        }
+        .alumni-card .alumni-promo {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .alumni-card .alumni-position {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+        }
+        .stats-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        .stats-label {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e9ecef;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            padding-left: 20px;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .timeline-desc {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--secondary-color);
+        }
+        .nav-pills .nav-link {
+            color: var(--primary-color);
+        }
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="display-4 fw-bold mb-4">TG Master Alumni</h1>
+                    <p class="lead mb-4">Rejoignez la communauté des anciens étudiants de TG Master et restez connectés à votre alma mater</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#rejoindre" class="btn btn-light btn-lg">Rejoindre le réseau</a>
+                        <a href="#evenements" class="btn btn-outline-light btn-lg">Événements à venir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos de la communauté -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Notre communauté</h2>
+                    <p class="lead">Une communauté dynamique de plus de 5 000 diplômés à travers le monde</p>
+                    <p>TG Master Alumni est le réseau des anciens étudiants de l'établissement. Notre mission est de maintenir les liens entre les diplômés, de favoriser les échanges professionnels et de soutenir le développement de l'établissement.</p>
+                    <p>En tant que membre de la communauté TG Master Alumni, vous bénéficiez d'avantages exclusifs et d'opportunités de développement professionnel tout au long de votre carrière.</p>
+                    <div class="row mt-4 g-4">
+                        <div class="col-6">
+                            <div class="stats-card">
+                                <div class="stats-number">5 000+</div>
+                                <div class="stats-label">Anciens étudiants</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stats-card">
+                                <div class="stats-number">25+</div>
+                                <div class="stats-label">Pays représentés</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://via.placeholder.com/600x400?text=TG+Master+Alumni" alt="Équipe TG Master Alumni" class="img-fluid rounded-3 shadow">
+                        <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 m-3 rounded">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-quote-left fa-2x me-3"></i>
+                                <p class="mb-0 fst-italic">TG Master m'a donné les clés pour réussir ma carrière. Aujourd'hui, je suis fier de faire partie de cette communauté qui continue de grandir.</p>
+                            </div>
+                            <div class="text-end mt-2">
+                                <strong>Koffi Adjo</strong><br>
+                                <small>Promo 2018, Directeur Marketing</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Avantages du réseau</h2>
+                    <p class="lead">Découvrez les bénéfices de rejoindre la communauté TG Master Alumni</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-briefcase fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Réseau professionnel</h3>
+                            <p class="mb-0">Élargissez votre réseau professionnel et créez des opportunités de carrière avec d'anciens étudiants dans divers secteurs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-graduation-cap fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Formation continue</h3>
+                            <p class="mb-0">Bénéficiez de réductions sur les formations continues et les séminaires organisés par TG Master.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-calendar-alt fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Événements exclusifs</h3>
+                            <p class="mb-0">Participez à des conférences, ateliers et rencontres réservés aux membres de la communauté.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages d'anciens -->
+    <section class="py-5" id="temoignages">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Ils témoignent</h2>
+                    <p class="lead">Découvrez les parcours inspirants de nos anciens étudiants</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Témoignage 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top" alt="Amina Touré">
+                            <div class="position-absolute bottom-0 end-0 bg-primary text-white p-2 m-2 rounded-pill small">
+                                Promo 2017
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="alumni-name">Amina Touré</h3>
+                            <span class="alumni-promo">Promo 2017 - MBA Finance</span>
+                            <p class="alumni-position">Directrice Financière, Groupe Banque Atlantique</p>
+                            <p class="card-text">"Mon passage à TG Master a été déterminant dans mon parcours. Les compétences acquises m'ont permis d'évoluer rapidement dans le secteur bancaire."</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="Komlan Amevo">
+                            <div class="position-absolute bottom-0 end-0 bg-primary text-white p-2 m-2 rounded-pill small">
+                                Promo 2015
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="alumni-name">Komlan Amevo</h3>
+                            <span class="alumni-promo">Promo 2015 - Génie Informatique</span>
+                            <p class="alumni-position">Fondateur & CEO, Tech Solutions Africa</p>
+                            <p class="card-text">"L'esprit d'innovation et l'excellence académique de TG Master m'ont donné les bases pour créer mon entreprise dans les nouvelles technologies."</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top" alt="Fatou Bamba">
+                            <div class="position-absolute bottom-0 end-0 bg-primary text-white p-2 m-2 rounded-pill small">
+                                Promo 2019
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="alumni-name">Fatou Bamba</h3>
+                            <span class="alumni-promo">Promo 2019 - Marketing Digital</span>
+                            <p class="alumni-position">Responsable Communication Digitale, Orange Togo</p>
+                            <p class="card-text">"Le réseau des anciens m'a beaucoup aidée dans mon insertion professionnelle. Aujourd'hui, je m'engage à mon tour à aider les nouvelles promotions."</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary">Voir plus de témoignages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Événements à venir -->
+    <section class="py-5 bg-light" id="evenements">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Événements à venir</h2>
+                    <p class="lead">Participez à nos prochains événements réservés aux anciens étudiants</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Événement 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/400x200?text=Afterwork+R%C3%A9seautage" class="card-img-top" alt="Afterwork Réseautage">
+                            <div class="position-absolute top-0 end-0 bg-danger text-white p-2 m-2 rounded-pill small">
+                                Bientôt
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary">Networking</span>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 15 Nov. 2023</small>
+                            </div>
+                            <h3 class="h5">Afterwork Réseautage - Édition Spéciale 10 ans</h3>
+                            <p class="card-text">Rejoignez-nous pour une soirée de networking entre diplômés de TG Master. Une occasion unique d'élargir votre réseau professionnel.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-map-marker-alt text-muted me-1"></i> Hôtel Sarakawa, Lomé</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">S'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Événement 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/400x200?text=Conf%C3%A9rence+IA" class="card-img-top" alt="Conférence IA">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-success">Conférence</span>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 5 Déc. 2023</small>
+                            </div>
+                            <h3 class="h5">L'IA dans les entreprises africaines : défis et opportunités</h3>
+                            <p class="card-text">Table ronde avec des experts du secteur et des diplômés de TG Master travaillant dans l'intelligence artificielle.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-video text-muted me-1"></i> En ligne</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">S'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Événement 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/400x200?text=Atelier+Carri%C3%A8re" class="card-img-top" alt="Atelier Carrière">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-warning text-dark">Atelier</span>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 20 Janv. 2024</small>
+                            </div>
+                            <h3 class="h5">Atelier Carrière : Préparer sa reconversion professionnelle</h3>
+                            <p class="card-text">Des conseils pratiques et des retours d'expérience pour réussir votre transition professionnelle.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-map-marker-alt text-muted me-1"></i> Campus TG Master, Bâtiment A</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">S'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Voir tous les événements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rejoindre le réseau -->
+    <section class="py-5" id="rejoindre">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-lg">
+                        <div class="row g-0">
+                            <div class="col-lg-6 d-flex align-items-center bg-primary text-white p-5">
+                                <div>
+                                    <h2 class="h1 mb-4">Rejoignez notre réseau</h2>
+                                    <p class="lead mb-4">Restez connecté à votre alma mater et profitez des avantages du réseau TG Master Alumni.</p>
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span>Accès à l'annuaire des anciens</span>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span>Invitations aux événements exclusifs</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span>Offres d'emploi et opportunités de carrière</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <h3 class="h4 mb-4">Devenez membre</h3>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="nom" class="form-label">Nom complet <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="nom" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="promo" class="form-label">Année de diplomation <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="promo" required>
+                                                <option value="" selected disabled>Sélectionnez votre promotion</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014 ou avant</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="filiere" class="form-label">Filière suivie <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="filiere" required>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="newsletter">
+                                            <label class="form-check-label" for="newsletter">Je souhaite recevoir la newsletter des anciens</label>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Rejoindre le réseau</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bannière CTA -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="h3 mb-3">Vous recrutez ?</h2>
+                    <p class="lead mb-0">Publiez vos offres d'emploi et de stage sur notre plateforme dédiée aux diplômés de TG Master.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <a href="../a-propos/espace-entreprises.html" class="btn btn-light btn-lg">Publier une offre</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

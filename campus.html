@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG Master Campus - Découvrez notre campus</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPnJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==') repeat;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        .campus-map {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .facility-card {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        .facility-icon {
+            flex: 0 0 60px;
+            height: 60px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--secondary-color);
+            font-size: 24px;
+        }
+        .facility-content {
+            flex: 1;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            border-left: 4px solid var(--accent-color);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .testimonial-text:before {
+            content: '"\201C"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            left: -15px;
+            top: -20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        .author-info h5 {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        .author-info p {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .stats-label {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .nav-pills .nav-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .nav-pills .nav-link.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .nav-pills .nav-link:hover:not(.active) {
+            background: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="display-4 fw-bold mb-4">TG Master Campus</h1>
+                    <p class="lead mb-4">Découvrez un environnement d'apprentissage moderne et stimulant au cœur de la ville</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#visite-virtuelle" class="btn btn-light btn-lg">Visite virtuelle</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Nous rendre visite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Présentation du campus -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">Bienvenue sur le campus</h2>
+                    <p class="lead">Un cadre d'exception pour votre réussite académique</p>
+                    <p>Étendu sur plus de 5 hectares, le campus de TG Master est un véritable écosystème éducatif moderne conçu pour favoriser l'apprentissage, l'innovation et l'épanouissement personnel.</p>
+                    <p>Avec ses infrastructures de pointe, ses espaces verts et ses installations sportives, le campus offre un environnement idéal pour étudier, se détendre et développer son réseau professionnel.</p>
+                    <div class="row mt-4 g-4">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="stats-number">5+</div>
+                                <div class="stats-label">Hectares de campus</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-light rounded-3">">
+                                <div class="stats-number">24/7</div>
+                                <div class="stats-label">Accès sécurisé</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="campus-map">
+                        <img src="https://via.placeholder.com/800x500?text=Plan+du+Campus" alt="Plan du campus TG Master" class="img-fluid rounded-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installations -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Nos installations</h2>
+                    <p class="lead">Découvrez nos équipements de pointe pour un apprentissage optimal</p>
+                </div>
+            </div>
+            
+            <ul class="nav nav-pills justify-content-center mb-5" id="facilitiesTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="classrooms-tab" data-bs-toggle="pill" data-bs-target="#classrooms" type="button" role="tab">Salles de cours</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="labs-tab" data-bs-toggle="pill" data-bs-target="#labs" type="button" role="tab">Laboratoires</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="library-tab" data-bs-toggle="pill" data-bs-target="#library" type="button" role="tab">Bibliothèque</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sports-tab" data-bs-toggle="pill" data-bs-target="#sports" type="button" role="tab">Sports & Loisirs</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="restauration-tab" data-bs-toggle="pill" data-bs-target="#restauration" type="button" role="tab">Restauration</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="facilitiesTabContent">
+                <!-- Salles de cours -->
+                <div class="tab-pane fade show active" id="classrooms" role="tabpanel" aria-labelledby="classrooms-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="card h-100">
+                                <div class="position-relative">
+                                    <img src="https://via.placeholder.com/600x400?text=Amphith%C3%A9%C3%A2tre" class="card-img-top" alt="Amphithéâtre">
+                                    <span class="position-absolute top-0 end-0 bg-primary text-white p-2 m-2 rounded-pill small">Nouveau</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="h5">Amphithéâtre moderne</h3>
+                                    <p class="card-text">Notre amphithéâtre de 300 places équipé des dernières technologies pour des conférences et cours magistraux.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i> Écran géant 4K</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Système audio professionnel</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Enregistrement des cours</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/600x400?text=Salle+de+classe" class="card-img-top" alt="Salle de classe">
+                                <div class="card-body">
+                                    <h3 class="h5">Salles de cours modulables</h3>
+                                    <p class="card-text">Des espaces flexibles adaptés aux différentes méthodes pédagogiques et travaux de groupe.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i> Mobilier modulable</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Équipement numérique</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Climatisation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/600x400?text=Salle+informatique" class="card-img-top" alt="Salle informatique">
+                                <div class="card-body">
+                                    <h3 class="h5">Salles informatiques</h3>
+                                    <p class="card-text">Des espaces équipés d'ordinateurs performants et des logiciels spécialisés par filière.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i> PC dernière génération</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Accès 24/7 pour les étudiants</li>
+                                        <li><i class="fas fa-check text-success me-2"></i> Logiciels professionnels</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Autres onglets (contenu réduit pour l'exemple) -->
+                <div class="tab-pane fade" id="labs" role="tabpanel" aria-labelledby="labs-tab">
+                    <div class="text-center py-5">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Laboratoires de pointe</h3>
+                        <p class="lead">Découvrez nos laboratoires équipés des dernières technologies pour la recherche et l'expérimentation.</p>
+                        <p>Contenu en cours de préparation...</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="library" role="tabpanel" aria-labelledby="library-tab">
+                    <div class="text-center py-5">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Bibliothèque universitaire</h3>
+                        <p class="lead">Un espace de travail silencieux avec plus de 50 000 ouvrages et ressources numériques.</p>
+                        <p>Contenu en cours de préparation...</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="sports-tab">
+                    <div class="text-center py-5">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Installations sportives</h3>
+                        <p class="lead">Des équipements complets pour la pratique sportive et le bien-être des étudiants.</p>
+                        <p>Contenu en cours de préparation...</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="restauration" role="tabpanel" aria-labelledby="restauration-tab">
+                    <div class="text-center py-5">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Restauration</h3>
+                        <p class="lead">Des espaces de restauration variés pour tous les goûts et tous les budgets.</p>
+                        <p>Contenu en cours de préparation...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie photo -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Galerie photo</h2>
+                    <p class="lead">Explorez notre campus en images</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400?text=B%C3%A2timent+principal" alt="Bâtiment principal">
+                        <div class="gallery-caption">
+                            <h4 class="h6 mb-0">Bâtiment principal</h4>
+                            <small>Entrée principale du campus</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400?text=Biblioth%C3%A8que" alt="Bibliothèque">
+                        <div class="gallery-caption">
+                            <h4 class="h6 mb-0">Bibliothèque universitaire</h4>
+                            <small>Espace de travail et de recherche</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400?text=Espace+d%C3%A9tente" alt="Espace détente">
+                        <div class="gallery-caption">
+                            <h4 class="h6 mb-0">Espace détente</h4>
+                            <small>Zone de détente pour les étudiants</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/800x500?text=Terrain+de+sport" alt="Terrain de sport">
+                        <div class="gallery-caption">
+                            <h4 class="h6 mb-0">Complexe sportif</h4>
+                            <small>Installations sportives de haut niveau</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/800x500?text=Caf%C3%A9t%C3%A9ria" alt="Cafétéria">
+                        <div class="gallery-caption">
+                            <h4 class="h6 mb-0">Cafétéria</h4>
+                            <small>Espace de restauration et de convivialité</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">Voir plus de photos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visite virtuelle -->
+    <section class="py-5 bg-light" id="visite-virtuelle">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">Visite virtuelle</h2>
+                    <p class="lead">Explorez notre campus depuis chez vous</p>
+                    <p>Découvrez les différents espaces du campus TG Master grâce à notre visite virtuelle à 360°. Parcourez les salles de cours, la bibliothèque, les laboratoires et les espaces communs comme si vous y étiez.</p>
+                    <p>Cette visite vous permettra de vous familiariser avec l'environnement avant même votre arrivée sur le campus.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary me-3">Commencer la visite</a>
+                        <a href="#" class="btn btn-outline-primary">Voir le plan interactif</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="video-container">
+                        <img src="https://via.placeholder.com/800x500?text=Visite+360%C2%B0" alt="Visite virtuelle du campus" class="img-fluid">
+                        <div class="position-absolute top-50 start-50 translate-middle">
+                            <button class="btn btn-primary btn-lg rounded-circle" style="width: 70px; height: 70px;">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Ils parlent de nous</h2>
+                    <p class="lead">Ce que nos étudiants et visiteurs disent du campus</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="testimonial-card h-100">
+                        <div class="testimonial-text">
+                            <p>Le campus de TG Master est tout simplement impressionnant. Les installations sont modernes et bien entretenues. J'apprécie particulièrement les espaces de travail collaboratif qui favorisent les échanges entre étudiants.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Amina">
+                            <div class="author-info">
+                                <h5>Amina Koffi</h5>
+                                <p>Étudiante en Informatique</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card h-100">
+                        <div class="testimonial-text">
+                            <p>En tant que parent, je suis rassuré de voir que mon enfant évolue dans un environnement aussi sécurisé et propice aux études. Les infrastructures sportives sont un vrai plus pour son équilibre.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Koffi">
+                            <div class="author-info">
+                                <h5>Koffi Adjo</h5>
+                                <p>Parent d'étudiant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card h-100">
+                        <div class="testimonial-text">
+                            <p>J'ai visité plusieurs campus universitaires, mais celui de TG Master se distingue par son design moderne et son ambiance conviviale. Les espaces verts et les aires de détente en font un lieu agréable au quotidien.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fatou">
+                            <div class="author-info">
+                                <h5>Fatou Bamba</h5>
+                                <p>Étudiante en Gestion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Visite -->
+    <section class="py-5 bg-primary text-white" id="contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="h3 mb-3">Prêt à nous rendre visite ?</h2>
+                    <p class="lead mb-0">Planifiez votre visite du campus et découvrez par vous-même l'environnement d'apprentissage exceptionnel de TG Master.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#" class="btn btn-light btn-lg">Planifier une visite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localisation -->
+    <div class="bg-light">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <h2 class="section-title">Nous trouver</h2>
+                        <address class="mt-4">
+                            <h3 class="h5">TG Master</h3>
+                            <p class="mb-2">123 Avenue de l'Université</p>
+                            <p class="mb-2">BP 12345 Lomé, Togo</p>
+                            <p class="mb-2">Tél: +228 XX XXX XXX</p>
+                            <p class="mb-0">Email: contact@tgmaster.tg</p>
+                        </address>
+                        
+                        <h3 class="h5 mt-5">Horaires d'ouverture</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Lundi - Vendredi:</strong> 7h30 - 19h00</li>
+                            <li class="mb-2"><strong>Samedi:</strong> 9h00 - 13h00</li>
+                            <li><strong>Dimanche:</strong> Fermé</li>
+                        </ul>
+                        
+                        <div class="mt-5">
+                            <h3 class="h5">Accès</h3>
+                            <p>Le campus est facilement accessible en bus (lignes 4, 8, 12) et dispose d'un parking sécurisé pour les visiteurs.</p>
+                            <a href="#" class="btn btn-outline-primary mt-2">Voir l'itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div style="width: 100%; height: 100%; min-height: 500px;">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=1.2086868286132815%2C6.129795078052343%2C1.2389907836914065%2C6.1519966125488295&amp;layer=mapnik&amp;marker=6.140895876800587%2C1.2238388061523438" 
+                            style="border: 1px solid #ccc;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialiser AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Activer les tooltips Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

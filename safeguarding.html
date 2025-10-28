@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme SAFEGUARDING - Protection et Sécurité | TG Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+            --danger-color: #dc3545;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPnJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==') repeat;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 1.25rem;
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .btn-outline-danger {
+            color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
+        .btn-outline-danger:hover {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        .nav-pills .nav-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .nav-pills .nav-link.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .nav-pills .nav-link:hover:not(.active) {
+            background: #e9ecef;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .policy-card {
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+            height: 100%;
+        }
+        .alert-safeguarding {
+            border-left: 4px solid var(--danger-color);
+            border-radius: 0 8px 8px 0;
+        }
+        .contact-card {
+            border-radius: 10px;
+            padding: 25px;
+            background: #f8f9fa;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .resource-link {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        .resource-link:hover {
+            background: #f8f9fa;
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .resource-link i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e9ecef;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            padding-left: 30px;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 1px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Programme SAFEGUARDING</h1>
+                    <p class="lead mb-4">Protection et bien-être de notre communauté universitaire</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#signaler" class="btn btn-light btn-lg">Signaler un incident</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact d'urgence</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">Qu'est-ce que le programme SAFEGUARDING ?</h2>
+                    <p class="lead">Un engagement pour la sécurité et le bien-être de tous</p>
+                    <p>Le programme SAFEGUARDING de TG Master est une initiative globale visant à assurer la protection et la sécurité de tous les membres de notre communauté universitaire. Ce programme s'appuie sur des politiques rigoureuses, des formations régulières et des mécanismes de signalement accessibles à tous.</p>
+                    <p>Notre objectif est de créer un environnement d'apprentissage sûr, inclusif et respectueux où chaque individu peut s'épanouir pleinement.</p>
+                    <div class="mt-4">
+                        <a href="#politiques" class="btn btn-primary me-3">Nos politiques</a>
+                        <a href="#ressources" class="btn btn-outline-primary">Ressources</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 text-center p-4">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="h5">Protection</h3>
+                                <p class="mb-0">Des politiques claires pour assurer la sécurité de tous</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 text-center p-4">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="h5">Formation</h3>
+                                <p class="mb-0">Des sessions régulières pour tous les membres</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 text-center p-4">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3 class="h5">Écoute</h3>
+                                <p class="mb-0">Des canaux de signalement accessibles</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 text-center p-4">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3 class="h5">Soutien</h3>
+                                <p class="mb-0">Un accompagnement personnalisé</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alertes importantes -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="alert alert-danger alert-safeguarding d-flex align-items-center" role="alert" data-aos="fade-up">
+                <div class="flex-shrink-0 me-3">
+                    <i class="fas fa-exclamation-triangle fa-2x"></i>
+                </div>
+                <div>
+                    <h3 class="alert-heading h5 mb-2">Urgence - Signalement immédiat</h3>
+                    <p class="mb-0">Si vous ou une personne est en danger immédiat, veuillez contacter les services d'urgence au <strong>911</strong> ou la sécurité du campus au <strong>+228 XX XXX XXX</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domaines d'intervention -->
+    <section class="py-5" id="domaines">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Nos domaines d'intervention</h2>
+                    <p class="lead">Le programme SAFEGUARDING couvre plusieurs aspects essentiels de la vie universitaire</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="h5 mt-3">Protection des mineurs</h3>
+                            <p class="mb-0">Politiques et procédures pour assurer la sécurité des enfants et des jeunes sur le campus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="h5 mt-3">Équité et inclusion</h3>
+                            <p class="mb-0">Lutte contre les discriminations et promotion d'un environnement inclusif pour tous.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="h5 mt-3">Santé mentale</h3>
+                            <p class="mb-0">Soutien psychologique et ressources pour le bien-être mental de la communauté.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3 class="h5 mt-3">Sécurité numérique</h3>
+                            <p class="mb-0">Protection des données et prévention des risques en ligne pour tous les utilisateurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment signaler -->
+    <section class="py-5 bg-light" id="signaler">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="section-title">Comment signaler un incident ?</h2>
+                    <p class="lead">Plusieurs canaux sont à votre disposition pour signaler tout problème ou préoccupation</p>
+                </div>
+            </div>
+            
+            <div class="timeline" data-aos="fade-up">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h3 class="h5">Contactez un référent SAFEGUARDING</h3>
+                                <p class="mb-0">Des membres du personnel formés sont disponibles pour vous écouter et vous orienter. Vous pouvez les contacter par email à <a href="mailto:safeguarding@tgmaster.tg">safeguarding@tgmaster.tg</a> ou lors de leurs permanences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h3 class="h5">Utilisez notre formulaire en ligne</h3>
+                                <p class="mb-0">Notre formulaire sécurisé vous permet de signaler un incident de manière anonyme si vous le souhaitez. Toutes les informations sont traitées avec la plus grande confidentialité.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary mt-2">Accéder au formulaire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h3 class="h5">Contactez les services d'urgence</h3>
+                                <p class="mb-0">En cas d'urgence ou de danger immédiat, contactez directement les services de sécurité du campus au <strong>+228 XX XXX XXX</strong> ou les services d'urgence au <strong>911</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-5" role="alert" data-aos="fade-up">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-info-circle fa-2x me-3"></i>
+                    <div>
+                        <h3 class="h5 mb-2">Confidentialité garantie</h3>
+                        <p class="mb-0">Tous les signalements sont traités avec la plus grande confidentialité. Vos informations personnelles ne seront pas divulguées sans votre consentement, sauf dans les cas où la loi l'exige.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ressources et politiques -->
+    <section class="py-5" id="politiques">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">Politiques et documents</h2>
+                    <p class="lead">Consultez nos politiques complètes et documents de référence</p>
+                    <p>TG Master s'engage à maintenir des politiques claires et accessibles pour assurer la sécurité et le bien-être de tous les membres de sa communauté.</p>
+                    <p>Téléchargez nos documents officiels pour en savoir plus sur nos engagements et procédures.</p>
+                    <a href="#" class="btn btn-primary mt-3">Télécharger la charte complète</a>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="policy-card">
+                                <h3 class="h5">Politique de protection de l'enfance</h3>
+                                <p>Cadre complet pour la protection des mineurs sur le campus et lors des activités universitaires.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Télécharger <i class="fas fa-download ms-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="policy-card">
+                                <h3 class="h5">Charte de vie étudiante</h3>
+                                <p>Droits et responsabilités des étudiants pour un environnement universitaire respectueux et sûr.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Télécharger <i class="fas fa-download ms-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="policy-card">
+                                <h3 class="h5">Procédure de signalement</h3>
+                                <p>Étapes détaillées pour signaler un incident et suivi des procédures.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Télécharger <i class="fas fa-download ms-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="policy-card">
+                                <h3 class="h5">Guide des bonnes pratiques</h3>
+                                <p>Recommandations pour un comportement respectueux et inclusif sur le campus.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Télécharger <i class="fas fa-download ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts et soutien -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Contacts et soutien</h2>
+                    <p class="lead">Notre équipe est là pour vous écouter et vous accompagner</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="h5">Ligne d'assistance</h3>
+                        <p>Service d'écoute et d'orientation disponible du lundi au vendredi, de 8h à 18h.</p>
+                        <a href="tel:+228XXXXXXXX" class="btn btn-outline-primary mt-3">Appeler maintenant</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="h5">Email dédié</h3>
+                        <p>Pour toute question ou préoccupation, écrivez-nous à l'adresse suivante :</p>
+                        <a href="mailto:safeguarding@tgmaster.tg" class="btn btn-outline-primary mt-3">Envoyer un email</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="h5">Rendez-vous</h3>
+                        <p>Prenez rendez-vous avec un membre de l'équipe SAFEGUARDING pour un entretien confidentiel.</p>
+                        <a href="#" class="btn btn-primary mt-3">Prendre rendez-vous</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-warning mt-5" role="alert" data-aos="fade-up">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+                    <div>
+                        <h3 class="h5 mb-2">Si vous êtes en danger immédiat</h3>
+                        <p class="mb-0">Composez immédiatement le <strong>911</strong> ou contactez la sécurité du campus au <strong>+228 XX XXX XXX</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Questions fréquentes</h2>
+                        <p class="lead">Trouvez des réponses aux questions les plus courantes sur le programme SAFEGUARDING</p>
+                    </div>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Comment puis-je signaler un incident de manière anonyme ?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Vous pouvez signaler un incident de manière anonyme en utilisant notre formulaire en ligne dédié. Aucune information personnelle n'est requise pour soumettre un signalement. Cependant, veuillez noter que l'anonymat peut limiter notre capacité à mener une enquête complète ou à vous fournir un suivi personnalisé.</p>
+                                    <p>Si vous souhaitez rester anonyme mais permettre un suivi, vous pouvez créer une adresse email temporaire pour communiquer avec nous.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Que se passe-t-il après avoir signalé un incident ?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Une fois un incident signalé, notre équipe SAFEGUARDING procède comme suit :</p>
+                                    <ol>
+                                        <li><strong>Accusé de réception</strong> : Vous recevrez un accusé de réception sous 24 à 48 heures ouvrables.</li>
+                                        <li><strong>Évaluation initiale</strong> : L'équipe évalue l'urgence et la gravité de la situation.</li>
+                                        <li><strong>Enquête</strong> : Si nécessaire, une enquête est ouverte avec votre accord.</li>
+                                        <li><strong>Mesures immédiates</strong> : Des mesures de protection sont mises en place si nécessaire.</li>
+                                        <li><strong>Suivi</strong> : Vous serez tenu informé des développements et des mesures prises.</li>
+                                    </ol>
+                                    <p class="mb-0">La confidentialité est maintenue à chaque étape du processus.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Quelles mesures sont en place pour protéger les témoins et les personnes qui signalent des incidents ?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>La protection des témoins et des personnes signalant des incidents est une priorité absolue pour TG Master. Voici les mesures en place :</p>
+                                    <ul>
+                                        <li><strong>Confidentialité stricte</strong> : Les informations personnelles ne sont partagées qu'avec les personnes directement impliquées dans le traitement du signalement.</li>
+                                        <li><strong>Protection contre les représailles</strong> : Toute forme de représailles à l'encontre des personnes signalant des incidents est strictement interdite et peut entraîner des mesures disciplinaires.</li>
+                                        <li><strong>Accompagnement</strong> : Un accompagnement personnalisé est proposé aux personnes qui le souhaitent.</li>
+                                        <li><strong>Mesures de protection</strong> : Si nécessaire, des mesures de protection spécifiques peuvent être mises en place (changement de groupe, aménagement d'horaires, etc.).</li>
+                                    </ul>
+                                    <p class="mb-0">Si vous craignez des représailles, veuillez le mentionner lors de votre signalement pour que des mesures appropriées soient prises immédiatement.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <p class="mb-3">Vous ne trouvez pas de réponse à votre question ?</p>
+                        <a href="#contact" class="btn btn-primary">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bannière CTA -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="h3 mb-3">Vous avez besoin d'aide immédiate ?</h2>
+                    <p class="lead mb-0">Notre équipe est disponible pour vous écouter et vous accompagner 24h/24 et 7j/7 en cas d'urgence.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="tel:+228XXXXXXXX" class="btn btn-light btn-lg me-2"><i class="fas fa-phone-alt me-2"></i>Appeler</a>
+                    <a href="mailto:urgence@tgmaster.tg" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope me-2"></i>Écrire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialiser AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

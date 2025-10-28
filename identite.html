@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identité & Logo - TG Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        .logo-display {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+        }
+        .logo-large {
+            max-width: 300px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        .color-swatch {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        .typography-example {
+            margin-bottom: 30px;
+        }
+        .typography-example h1, 
+        .typography-example h2, 
+        .typography-example h3, 
+        .typography-example p {
+            margin-bottom: 15px;
+        }
+        .download-btn {
+            margin: 10px 5px;
+        }
+        .brand-guidelines {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Identité & Logo</h1>
+                    <p class="lead">Découvrez notre charte graphique et nos directives d'utilisation de la marque</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Logo -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="mb-4">Notre Logo</h2>
+                    <p class="lead">Le logo de TG Master est l'élément central de notre identité visuelle. Il doit être utilisé conformément à ces directives pour assurer une image de marque cohérente.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="logo-display">
+                                <img src="https://via.placeholder.com/300x150/03224c/ffffff?text=TG+MASTER" alt="TG Master Logo" class="logo-large">
+                                <h4>Version Principale (Couleur)</h4>
+                                <p>À utiliser sur fond clair de préférence</p>
+                                <div class="mt-3">
+                                    <a href="#" class="btn btn-outline-primary download-btn">
+                                        <i class="fas fa-download me-2"></i>Télécharger PNG
+                                    </a>
+                                    <a href="#" class="btn btn-outline-primary download-btn">
+                                        <i class="fas fa-download me-2"></i>Télécharger SVG
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="logo-display" style="background: #03224c;">
+                                <img src="https://via.placeholder.com/300x150/ffffff/03224c?text=TG+MASTER" alt="TG Master Logo Blanc" class="logo-large">
+                                <h4 class="text-white">Version Négative (Blanc)</h4>
+                                <p class="text-white-50">À utiliser sur fond sombre</p>
+                                <div class="mt-3">
+                                    <a href="#" class="btn btn-outline-light download-btn">
+                                        <i class="fas fa-download me-2"></i>Télécharger PNG
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light download-btn">
+                                        <i class="fas fa-download me-2"></i>Télécharger SVG
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="card-title">Directives d'utilisation du logo</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="mt-4">À faire</h5>
+                                            <ul>
+                                                <li>Utiliser l'espace de protection (zone d'exclusion) équivalent à 20% de la largeur du logo</li>
+                                                <li>Privilégier la version couleur sur fond clair</li>
+                                                <li>Utiliser la version blanche sur fond sombre ou coloré</li>
+                                                <li>Maintenir les proportions lors du redimensionnement</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="mt-4">À éviter</h5>
+                                            <ul>
+                                                <li>Ne pas modifier les couleurs du logo</li>
+                                                <li>Ne pas faire pivoter le logo</li>
+                                                <li>Ne pas ajouter d'effets (ombre, contour, etc.)</li>
+                                                <li>Ne pas écraser ou déformer le logo</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Couleurs -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="mb-4">Notre Palette de Couleurs</h2>
+                    <p class="lead">Les couleurs officielles de TG Master reflètent notre identité et nos valeurs.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-3 mb-4">
+                            <div class="color-swatch" style="background-color: #03224c;">
+                                Bleu TG Master<br>#03224C
+                            </div>
+                            <p class="text-center fw-bold">Couleur Principale</p>
+                            <p class="small text-muted text-center">Utilisée pour les titres, les boutons principaux et les éléments importants.</p>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="color-swatch" style="background-color: #0d6efd;">
+                                Bleu Clair<br>#0D6EFD
+                            </div>
+                            <p class="text-center fw-bold">Couleur Secondaire</p>
+                            <p class="small text-muted text-center">Utilisée pour les liens, les boutons secondaires et les éléments interactifs.</p>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="color-swatch" style="background-color: #20c997; color: #000;">
+                                Turquoise<br>#20C997
+                            </div>
+                            <p class="text-center fw-bold">Couleur d'Accent</p>
+                            <p class="small text-muted text-center">Utilisée pour les éléments d'accentuation et les appels à l'action.</p>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="color-swatch" style="background-color: #6c757d;">
+                                Gris<br>#6C757D
+                            </div>
+                            <p class="text-center fw-bold">Couleur de Texte Secondaire</p>
+                            <p class="small text-muted text-center">Utilisée pour le texte secondaire et les informations moins importantes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="card-title">Utilisation des couleurs</h4>
+                                    <ul>
+                                        <li>La couleur principale doit dominer dans la communication visuelle</li>
+                                        <li>Utiliser la couleur d'accent avec parcimonie pour attirer l'attention sur des éléments spécifiques</li>
+                                        <li>Éviter d'utiliser plus de 3 couleurs dans une même composition</li>
+                                        <li>Pour les fonds clairs, privilégier le texte foncé (#212529) sur fond blanc ou très clair (#f8f9fa)</li>
+                                        <li>Pour les fonds sombres, utiliser du texte clair (#ffffff) sur fond foncé (#03224c ou #000000)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Typographie -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="mb-4">Typographie</h2>
+                    <p class="lead">La typographie joue un rôle essentiel dans notre identité visuelle.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="typography-example">
+                                <h3 style="font-family: 'Inter', sans-serif;">Inter</h3>
+                                <p class="text-muted">Police principale - Utilisée pour les titres et le texte</p>
+                                <div class="p-4 border rounded">
+                                    <h1 style="font-family: 'Inter', sans-serif;">Titre Principal (h1)</h1>
+                                    <h2 style="font-family: 'Inter', sans-serif;">Sous-titre (h2)</h2>
+                                    <h3 style="font-family: 'Inter', sans-serif;">Tertiaire (h3)</h3>
+                                    <p style="font-family: 'Inter', sans-serif;">Paragraphe - La police Inter offre une excellente lisibilité sur tous les écrans. Elle est utilisée pour tout le contenu textuel du site web et des documents officiels.</p>
+                                    <p style="font-family: 'Inter', sans-serif; font-weight: 600;">Gras - Pour mettre en valeur des informations importantes.</p>
+                                    <p style="font-family: 'Inter', sans-serif; font-style: italic;">Italique - Pour les citations ou les termes techniques.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="typography-example">
+                                <h3>Hiérarchie Typographique</h3>
+                                <p class="text-muted">Structure cohérente pour tous les documents</p>
+                                <div class="p-4 border rounded">
+                                    <h1 style="font-family: 'Inter', sans-serif;">Titre de page (h1) - 2.5rem</h1>
+                                    <h2 style="font-family: 'Inter', sans-serif;">Titre de section (h2) - 2rem</h2>
+                                    <h3 style="font-family: 'Inter', sans-serif;">Sous-section (h3) - 1.75rem</h3>
+                                    <h4 style="font-family: 'Inter', sans-serif;">Sous-titre (h4) - 1.5rem</h4>
+                                    <h5 style="font-family: 'Inter', sans-serif;">En-tête de carte (h5) - 1.25rem</h5>
+                                    <p style="font-family: 'Inter', sans-serif;">Corps de texte - 1rem</p>
+                                    <p style="font-family: 'Inter', sans-serif; font-size: 0.875rem;">Texte secondaire - 0.875rem</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4>Échelle de ligne recommandée</h4>
+                                <ul>
+                                    <li>Corps de texte : ligne de 1.5 (150% de la taille de la police)</li>
+                                    <li>Titres : ligne de 1.2 (120% de la taille de la police)</li>
+                                    <li>Espacement entre les paragraphes : 1.5rem</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Éléments Visuels -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="mb-4">Éléments Visuels</h2>
+                    <p class="lead">Icônes, images et autres éléments graphiques</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <div class="display-1 text-primary mb-3">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h4>Icônes</h4>
+                                    <p>Utiliser Font Awesome pour les icônes. Privilégier le style solide pour une meilleure visibilité.</p>
+                                    <div class="mt-3">
+                                        <span class="me-3"><i class="fas fa-check-circle text-success"></i></span>
+                                        <span class="me-3"><i class="fas fa-info-circle text-primary"></i></span>
+                                        <span class="me-3"><i class="fas fa-exclamation-triangle text-warning"></i></span>
+                                        <span class="me-3"><i class="fas fa-times-circle text-danger"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <img src="https://via.placeholder.com/300x200/f8f9fa/6c757d?text=Image+Exemple" alt="Exemple d'image" class="img-fluid rounded">
+                                    </div>
+                                    <h4>Images</h4>
+                                    <p>Utiliser des images de haute qualité, bien éclairées et professionnelles. Éviter les images floues ou pixélisées.</p>
+                                    <p class="small text-muted mb-0">Format recommandé : JPG ou WebP, largeur minimale 1200px</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <div class="p-4 bg-primary text-white rounded mb-2">Carré de couleur</div>
+                                        <div class="p-4 bg-gradient-primary text-white rounded">Dégradé</div>
+                                    </div>
+                                    <h4>Formes et Arrière-plans</h4>
+                                    <p>Utiliser des coins arrondis (border-radius: 8px) pour les cartes et les boutons. Les dégradés doivent être subtils et professionnels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Téléchargements -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Télécharger les ressources</h2>
+                    <p class="lead mb-4">Accédez à l'ensemble de nos ressources de marque pour une utilisation cohérente de notre identité visuelle.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="#" class="btn btn-primary btn-lg">
+                            <i class="fas fa-file-archive me-2"></i>Kit de marque complet (ZIP)
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-book me-2"></i>Guide de style (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

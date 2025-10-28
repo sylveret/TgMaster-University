@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règlements - TG Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        .regulation-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .regulation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .regulation-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 1.25rem;
+        }
+        .regulation-card .card-body {
+            padding: 1.5rem;
+        }
+        .document-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .document-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+        .document-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            flex-grow: 1;
+        }
+        .document-list a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .document-list i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(3, 34, 76, 0.05);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        .badge {
+            font-weight: 500;
+            padding: 5px 10px;
+            font-size: 0.75rem;
+        }
+        .document-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        .document-actions a {
+            color: #6c757d;
+            transition: color 0.3s ease;
+        }
+        .document-actions a:hover {
+            color: var(--secondary-color);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Règlements</h1>
+                    <p class="lead">Consultez les documents officiels qui régissent le fonctionnement de TG Master</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cartes de catégories -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Étudiants -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card regulation-card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-user-graduate fa-2x mb-3"></i>
+                            <h3 class="h5 mb-0">Étudiants</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <p>Règles et procédures spécifiques aux étudiants de TG Master.</p>
+                            <a href="#etudiants" class="btn btn-outline-primary mt-3">Voir les documents <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enseignants -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card regulation-card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-chalkboard-teacher fa-2x mb-3"></i>
+                            <h3 class="h5 mb-0">Enseignants</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <p>Directives et procédures pour le corps enseignant.</p>
+                            <a href="#enseignants" class="btn btn-outline-primary mt-3">Voir les documents <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Administration -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card regulation-card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-building fa-2x mb-3"></i>
+                            <h3 class="h5 mb-0">Administration</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <p>Règles et procédures administratives de l'établissement.</p>
+                            <a href="#administration" class="btn btn-outline-primary mt-3">Voir les documents <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partenaires -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card regulation-card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-handshake fa-2x mb-3"></i>
+                            <h3 class="h5 mb-0">Partenaires</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <p>Conventions et documents pour nos partenaires.</p>
+                            <a href="#partenaires" class="btn btn-outline-primary mt-3">Voir les documents <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents par catégorie -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">Documents Règlementaires</h2>
+                    <p class="lead mb-5">Accédez à l'ensemble des documents officiels classés par catégorie</p>
+                    
+                    <!-- Section Étudiants -->
+                    <div class="card border-0 shadow-sm mb-5" id="etudiants">
+                        <div class="card-header bg-white">
+                            <h3 class="h5 mb-0"><i class="fas fa-user-graduate me-2"></i>Documents pour les Étudiants</h3>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="accordion" id="accordionEtudiants">
+                                <!-- Règlement Intérieur -->
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            Règlement Intérieur
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionEtudiants">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Règlement Intérieur 2023-2024</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 1.2 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-word"></i>
+                                                        <span>Charte de l'Étudiant</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">DOCX - 850 Ko</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Vie Étudiante -->
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Vie Étudiante
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionEtudiants">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Charte des Résidences Universitaires</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 1.1 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Règlement de la Bibliothèque</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 720 Ko</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Examens et Évaluations -->
+                                <div class="accordion-item border-0">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Examens et Évaluations
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionEtudiants">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Règlement des Examens</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 980 Ko</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Procédure de Réclamation</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 650 Ko</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section Enseignants -->
+                    <div class="card border-0 shadow-sm mb-5" id="enseignants">
+                        <div class="card-header bg-white">
+                            <h3 class="h5 mb-0"><i class="fas fa-chalkboard-teacher me-2"></i>Documents pour les Enseignants</h3>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="accordion" id="accordionEnseignants">
+                                <!-- Enseignement -->
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Enseignement
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionEnseignants">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Guide Pédagogique 2023-2024</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 2.1 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-word"></i>
+                                                        <span>Modèle de Syllabus</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">DOCX - 320 Ko</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Recherche -->
+                                <div class="accordion-item border-0">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            Recherche
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionEnseignants">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Politique de la Recherche</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 1.7 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-word"></i>
+                                                        <span>Guide des Publications Scientifiques</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">DOCX - 2.3 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section Administration -->
+                    <div class="card border-0 shadow-sm" id="administration">
+                        <div class="card-header bg-white">
+                            <h3 class="h5 mb-0"><i class="fas fa-building me-2"></i>Documents Administratifs</h3>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="accordion" id="accordionAdmin">
+                                <!-- Gouvernance -->
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            Gouvernance
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionAdmin">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Statuts de l'Établissement</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 3.2 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Règlement Intérieur du Personnel</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 2.1 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Administration Générale -->
+                                <div class="accordion-item border-0">
+                                    <h2 class="accordion-header" id="headingSeven">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                            Administration Générale
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionAdmin">
+                                        <div class="accordion-body p-0">
+                                            <ul class="document-list mb-0">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-pdf"></i>
+                                                        <span>Règlement Financier</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">PDF - 1.9 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="far fa-file-word"></i>
+                                                        <span>Procédure d'Achats</span>
+                                                    </a>
+                                                    <div class="document-actions">
+                                                        <span class="badge bg-secondary">DOCX - 1.2 Mo</span>
+                                                        <a href="#" title="Télécharger"><i class="fas fa-download"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">Questions Fréquentes</h2>
+                    <p class="lead mb-5">Trouvez des réponses aux questions les plus courantes concernant nos règlements</p>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Question 1 -->
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header" id="faqHeadingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                                    Comment faire une réclamation concernant une note d'examen ?
+                                </button>
+                            </h2>
+                            <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Pour toute réclamation concernant une note d'examen, vous devez :</p>
+                                    <ol>
+                                        <li>Rédiger une lettre de réclamation motivée</li>
+                                        <li>La déposer au secrétariat pédagogique dans un délai de 7 jours ouvrables après l'affichage des résultats</li>
+                                        <li>Joindre toutes les pièces justificatives nécessaires</li>
+                                    </ol>
+                                    <p class="mb-0">Votre réclamation sera examinée par la commission pédagogique qui vous répondra dans un délai maximum de 15 jours.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header" id="faqHeadingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                    Quelles sont les conditions pour bénéficier d'une bourse d'études ?
+                                </button>
+                            </h2>
+                            <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Les conditions pour bénéficier d'une bourse d'études à TG Master sont les suivantes :</p>
+                                    <ul>
+                                        <li>Être régulièrement inscrit dans un programme de formation de TG Master</li>
+                                        <li>Justifier de ressources financières limitées</li>
+                                        <li>Avoir obtenu de bons résultats académiques l'année précédente</li>
+                                        <li>Ne pas bénéficier d'une autre bourse d'études</li>
+                                    </ul>
+                                    <p class="mb-0">Le dossier de demande de bourse est à retirer au service des bourses et doit être déposé avant le 30 septembre de l'année universitaire en cours.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 3 -->
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h2 class="accordion-header" id="faqHeadingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                    Comment obtenir une attestation de scolarité ?
+                                </button>
+                            </h2>
+                            <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Les attestations de scolarité sont disponibles sur votre espace étudiant dans la rubrique "Mes documents". Vous pouvez les télécharger et les imprimer directement.</p>
+                                    <p class="mb-0">Si vous rencontrez des difficultés, vous pouvez en faire la demande écrite au service de la scolarité. Le délai de délivrance est de 48 heures ouvrables.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Vous ne trouvez pas ce que vous cherchez ?</h2>
+                    <p class="lead mb-4">Notre équipe est à votre disposition pour répondre à toutes vos questions concernant les règlements et procédures de l'établissement.</p>
+                    <a href="../index.html#contact" class="btn btn-primary btn-lg me-3"><i class="fas fa-envelope me-2"></i>Nous contacter</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg"><i class="fas fa-phone-alt me-2"></i>Appeler le standard</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

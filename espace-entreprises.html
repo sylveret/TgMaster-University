@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Entreprises - TG Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwJSIgaGVpZ2h0PSI1MCUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPnJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==') repeat;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 1.25rem;
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .btn-outline-primary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .partner-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .partner-logo:hover {
+            transform: translateY(-5px);
+        }
+        .testimonial-card {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            background: white;
+            border-radius: 0 8px 8px 0;
+            height: 100%;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .testimonial-role {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .stats-label {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--secondary-color);
+        }
+        .nav-pills .nav-link {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Espace Entreprises</h1>
+                    <p class="lead mb-4">Partenaires privilégiés de TG Master, découvrez comment collaborer avec nous pour former les talents de demain</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#partenariats" class="btn btn-light btn-lg">Découvrir nos offres</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Nous contacter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous choisir -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Pourquoi choisir TG Master ?</h2>
+                    <p class="lead">Notre établissement forme des profils hautement qualifiés, prêts à relever les défis de votre entreprise</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Formation d'excellence</h3>
+                        <p class="mb-0">Des programmes conçus en partenariat avec les entreprises pour répondre aux besoins du marché de l'emploi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Réseau d'anciens</h3>
+                        <p class="mb-0">Accédez à un vivier de talents qualifiés grâce à notre réseau d'anciens étudiants.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Partenariats stratégiques</h3>
+                        <p class="mb-0">Développez des collaborations durables avec notre établissement à travers divers dispositifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos partenaires -->
+    <section class="py-5 bg-light" id="partenaires">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Ils nous font confiance</h2>
+                    <p class="lead">Découvrez nos entreprises partenaires qui nous accompagnent dans notre mission éducative</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x60?text=Entreprise+1" alt="Logo Entreprise 1" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x60?text=Entreprise+2" alt="Logo Entreprise 2" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x60?text=Entreprise+3" alt="Logo Entreprise 3" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x60?text=Entreprise+4" alt="Logo Entreprise 4" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos offres de partenariat -->
+    <section class="py-5" id="partenariats">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Nos offres de partenariat</h2>
+                    <p class="lead">Découvrez comment collaborer avec TG Master selon vos besoins</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Offre 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <h3 class="h5 mb-0">Partenariat Bronze</h3>
+                            <div class="mt-3">
+                                <span class="display-5 fw-bold">Gratuit</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Accès au CVthèque des diplômés</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Publication d'offres de stage</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Invitation aux forums emploi</li>
+                                <li class="text-muted mb-2"><i class="fas fa-times me-2"></i> Accès aux profils en alternance</li>
+                                <li class="text-muted mb-2"><i class="fas fa-times me-2"></i> Organisation d'ateliers métiers</li>
+                                <li class="text-muted"><i class="fas fa-times me-2"></i> Partenariat de recherche</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="#contact" class="btn btn-outline-primary w-100">Choisir cette offre</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Offre 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-primary">
+                        <div class="card-header bg-primary text-white text-center position-relative">
+                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                                Populaire
+                            </span>
+                            <h3 class="h5 mb-0">Partenariat Argent</h3>
+                            <div class="mt-3">
+                                <span class="display-5 fw-bold">5 000 FCFA</span>
+                                <span class="text-white-50">/an</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tous les avantages Bronze</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Accès aux profils en alternance</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Organisation d'ateliers métiers</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Mise en avant sur notre site web</li>
+                                <li class="text-muted mb-2"><i class="fas fa-times me-2"></i> Partenariat de recherche</li>
+                                <li class="text-muted"><i class="fas fa-times me-2"></i> Formation sur mesure</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="#contact" class="btn btn-primary w-100">Choisir cette offre</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Offre 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <h3 class="h5 mb-0">Partenariat Or</h3>
+                            <div class="mt-3">
+                                <span class="display-5 fw-bold">Sur devis</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tous les avantages Argent</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Partenariat de recherche</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Formation sur mesure</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Accès aux laboratoires</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Chaire d'entreprise</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Communication exclusive</li>
+                            </ul>
+                            <div class="text-center mt-auto">
+                                <a href="#contact" class="btn btn-outline-primary w-100">Nous contacter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Ils témoignent</h2>
+                    <p class="lead">Découvrez ce que nos partenaires disent de leur collaboration avec TG Master</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Notre collaboration avec TG Master nous a permis de recruter des profils exceptionnels, parfaitement formés et immédiatement opérationnels."</p>
+                        </div>
+                        <div class="testimonial-author">Aïcha Koné</div>
+                        <div class="testimonial-role">DRH, Entreprise Tech</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Les étudiants de TG Master se distinguent par leur professionnalisme et leur capacité d'adaptation. Un véritable vivier de talents pour notre entreprise."</p>
+                        </div>
+                        <div class="testimonial-author">Ousmane Diop</div>
+                        <div class="testimonial-role">Directeur Général, Groupe Industriel</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Le partenariat avec TG Master va au-delà du simple recrutement. C'est une véritable collaboration qui enrichit nos équipes et nos projets."</p>
+                        </div>
+                        <div class="testimonial-author">Fatou Bâ</div>
+                        <div class="testimonial-role">Directrice Innovation, Startup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="stats-number">95%</div>
+                    <div class="stats-label">Taux d'insertion professionnelle</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-number">150+</div>
+                    <div class="stats-label">Entreprises partenaires</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-number">85%</div>
+                    <div class="stats-label">D'embauche en CDI</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-number">200+</div>
+                    <div class="stats-label">Stages proposés/an</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de contact -->
+    <section class="py-5 bg-primary text-white" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <h2 class="h3 mb-4">Devenez partenaire de TG Master</h2>
+                            <p class="mb-4">Vous souhaitez collaborer avec nous, recruter nos étudiants ou en savoir plus sur nos offres de partenariat ? Notre équipe est à votre écoute.</p>
+                            
+                            <div class="mb-4">
+                                <h3 class="h5 mb-3">Coordonnées</h3>
+                                <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Avenue de l'Université, Lomé, Togo</p>
+                                <p class="mb-2"><i class="fas fa-phone-alt me-2"></i> +228 XX XXX XXX</p>
+                                <p class="mb-0"><i class="fas fa-envelope me-2"></i> entreprises@tgmaster.tg</p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="h5 mb-3">Suivez-nous</h3>
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="text-white me-2"><i class="fab fa-linkedin fa-2x"></i></a>
+                                    <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-2x"></i></a>
+                                    <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-2x"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="card shadow">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 mb-4">Contactez-nous</h3>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="nom" class="form-label">Nom complet <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="nom" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="entreprise" class="form-label">Entreprise <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="entreprise" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="telephone" class="form-label">Téléphone</label>
+                                            <input type="tel" class="form-control" id="telephone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sujet" class="form-label">Sujet <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="sujet" required>
+                                                <option value="" selected disabled>Choisir un sujet</option>
+                                                <option value="recrutement">Recrutement de stagiaires/alternants</option>
+                                                <option value="partenariat">Proposition de partenariat</option>
+                                                <option value="formation">Demande de formation sur mesure</option>
+                                                <option value="autre">Autre demande</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

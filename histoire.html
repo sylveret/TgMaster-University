@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoire - TG Master</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e9ecef;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::after {
+            right: -10px;
+        }
+        .right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .values-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 100%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .values-card:hover {
+            transform: translateY(-5px);
+        }
+        .values-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Notre Histoire</h1>
+                    <p class="lead">Découvrez l'histoire inspirante de TG Master et son évolution à travers les années</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Introduction -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Une Vision, Une Ambition</h2>
+                    <p class="lead">Depuis sa création, TG Master s'est engagé à fournir une éducation d'excellence, à former les leaders de demain et à contribuer au développement de notre société.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Notre Parcours</h2>
+            
+            <div class="timeline">
+                <!-- Année 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>Fondation de TG Master</h3>
+                        <p>Création de l'école avec une seule filière et une petite équipe d'enseignants passionnés. Notre objectif était clair : offrir une éducation de qualité accessible à tous.</p>
+                    </div>
+                </div>
+                
+                <!-- Année 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3>Première promotion diplômée</h3>
+                        <p>Notre première promotion de 50 étudiants obtient son diplôme avec un taux d'insertion professionnelle de 92% dans les 6 mois suivant l'obtention du diplôme.</p>
+                    </div>
+                </div>
+                
+                <!-- Année 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h3>Expansion des programmes</h3>
+                        <p>Lancement de 3 nouvelles filières en réponse aux besoins du marché et signature de partenariats avec des entreprises locales pour des stages et l'insertion professionnelle.</p>
+                    </div>
+                </div>
+                
+                <!-- Année 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Nouveau campus</h3>
+                        <p>Inauguration de notre nouveau campus moderne doté d'équipements de pointe, offrant un environnement d'apprentissage optimal pour nos étudiants.</p>
+                    </div>
+                </div>
+                
+                <!-- Année 5 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Reconnaissance internationale</h3>
+                        <p>Obtention de l'accréditation internationale et signature de partenariats avec des universités étrangères pour des échanges académiques.</p>
+                    </div>
+                </div>
+                
+                <!-- Année 6 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Innovation pédagogique</h3>
+                        <p>Lancement de notre plateforme d'apprentissage en ligne et adoption de méthodes pédagogiques innovantes pour s'adapter aux nouveaux défis éducatifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Valeurs -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Nos Valeurs Fondatrices</h2>
+                    <p class="lead">Les principes qui guident nos actions au quotidien</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="values-card p-4 text-center h-100">
+                        <div class="values-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Excellence Académique</h3>
+                        <p>Nous nous engageons à fournir une éducation de la plus haute qualité, en mettant l'accent sur l'excellence académique et le développement des compétences pratiques.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="values-card p-4 text-center h-100">
+                        <div class="values-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Communauté</h3>
+                        <p>Nous cultivons une communauté inclusive où chaque membre est valorisé et encouragé à contribuer au bien-être collectif.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="values-card p-4 text-center h-100">
+                        <div class="values-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Nous encourageons la créativité et l'innovation, en intégrant les dernières avancées technologiques dans nos méthodes d'enseignement.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="values-card p-4 text-center h-100">
+                        <div class="values-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Intégrité</h3>
+                        <p>Nous agissons avec éthique, honnêteté et transparence dans toutes nos interactions et décisions.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="values-card p-4 text-center h-100">
+                        <div class="values-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>Engagement Social</h3>
+                        <p>Nous nous engageons à avoir un impact positif sur la société en formant des professionnels responsables et engagés.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Chiffres Clés -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="display-4 fw-bold text-primary">13+</div>
+                    <p class="lead">Années d'expérience</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="display-4 fw-bold text-primary">5 000+</div>
+                    <p class="lead">Diplômés</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="display-4 fw-bold text-primary">50+</div>
+                    <p class="lead">Partenaires académiques</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="display-4 fw-bold text-primary">95%</div>
+                    <p class="lead">Taux d'insertion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Équipe de Direction -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Notre Équipe de Direction</h2>
+                    <p class="lead">Des leaders engagés pour votre réussite</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top" alt="Directrice Générale">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Marie Kouamé</h5>
+                            <p class="text-muted">Directrice Générale</p>
+                            <p class="card-text">Avec plus de 20 ans d'expérience dans l'éducation, Marie dirige TG Master avec passion et vision.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" class="card-img-top" alt="Directeur Pédagogique">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jean Akakpo</h5>
+                            <p class="text-muted">Directeur Pédagogique</p>
+                            <p class="card-text">Expert en pédagogie innovante, Jean veille à l'excellence académique de nos programmes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top" alt="Directrice des Relations Internationales">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Amina Touré</h5>
+                            <p class="text-muted">Directrice des Relations Internationales</p>
+                            <p class="card-text">Amina développe nos partenariats internationaux pour offrir des opportunités uniques à nos étudiants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Prêt à écrire votre histoire avec nous ?</h2>
+                    <p class="lead mb-4">Rejoignez une communauté dynamique d'apprenants et de professionnels passionnés.</p>
+                    <a href="#" class="btn btn-light btn-lg me-3">Postuler maintenant</a>
+                    <a href="#" class="btn btn-outline-light btn-lg">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (à inclure depuis le fichier principal) -->
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
