@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histoire - TG Master</title>
+    <title>Histoire - TgMaster</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -130,7 +130,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center">
                     <h1 class="display-4 fw-bold mb-4">Notre Histoire</h1>
-                    <p class="lead">Découvrez l'histoire inspirante de TG Master et son évolution à travers les années</p>
+                    <p class="lead">Découvrez l'histoire inspirante de TgMaster et son évolution à travers les années</p>
                 </div>
             </div>
         </div>
@@ -141,8 +141,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Une Vision, Une Ambition</h2>
-                    <p class="lead">Depuis sa création, TG Master s'est engagé à fournir une éducation d'excellence, à former les leaders de demain et à contribuer au développement de notre société.</p>
+                    <h2 class="section-title">Une Vision, une Ambition</h2>
+                    <p class="lead">Depuis sa création, TgMaster s'est engagé à fournir une éducation d'excellence, à former les leaders de demain et à contribuer au développement de notre société.</p>
                 </div>
             </div>
         </div>
@@ -151,14 +151,14 @@
     <!-- Timeline -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5 section-title">Notre Parcours</h2>
+            <h2 class="text-center mb-5 section-title">Notre parcours</h2>
             
             <div class="timeline">
                 <!-- Année 1 -->
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-year">2010</div>
-                        <h3>Fondation de TG Master</h3>
+                        <h3>Fondation de TgMaster University</h3>
                         <p>Création de l'école avec une seule filière et une petite équipe d'enseignants passionnés. Notre objectif était clair : offrir une éducation de qualité accessible à tous.</p>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Nos Valeurs Fondatrices</h2>
+                    <h2 class="section-title">Nos valeurs fondatrices</h2>
                     <p class="lead">Les principes qui guident nos actions au quotidien</p>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                         <div class="values-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3>Excellence Académique</h3>
+                        <h3>Excellence académique</h3>
                         <p>Nous nous engageons à fournir une éducation de la plus haute qualité, en mettant l'accent sur l'excellence académique et le développement des compétences pratiques.</p>
                     </div>
                 </div>
@@ -267,7 +267,7 @@
                         <div class="values-icon">
                             <i class="fas fa-globe-africa"></i>
                         </div>
-                        <h3>Engagement Social</h3>
+                        <h3>Engagement social</h3>
                         <p>Nous nous engageons à avoir un impact positif sur la société en formant des professionnels responsables et engagés.</p>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Notre Équipe de Direction</h2>
+                    <h2 class="section-title">Notre équipe de direction</h2>
                     <p class="lead">Des leaders engagés pour votre réussite</p>
                 </div>
             </div>
@@ -316,7 +316,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Marie Kouamé</h5>
                             <p class="text-muted">Directrice Générale</p>
-                            <p class="card-text">Avec plus de 20 ans d'expérience dans l'éducation, Marie dirige TG Master avec passion et vision.</p>
+                            <p class="card-text">Avec plus de 20 ans d'expérience dans l'éducation, Marie dirige TgMaster avec passion et vision.</p>
                         </div>
                     </div>
                 </div>
@@ -360,9 +360,37 @@
         </div>
     </section>
 
-    <!-- Footer (à inclure depuis le fichier principal) -->
-    
+    <!-- Footer -->
+    <div id="footer-content">
+        <!-- Le contenu sera chargé dynamiquement par JavaScript -->
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Chargement du footer -->
+    <script>
+        // Fonction pour charger le footer
+        function loadFooter() {
+            fetch('../includes/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-content').innerHTML = data;
+                })
+                .catch(error => console.error('Erreur lors du chargement du footer:', error));
+        }
+
+        // Charger le footer lorsque le DOM est chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFooter();
+            // Initialiser AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

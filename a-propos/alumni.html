@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TG Master Alumni - Communauté des Anciens</title>
+    <title>TgMaster Alumni - Communauté des Anciens</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -220,8 +220,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center hero-content">
-                    <h1 class="display-4 fw-bold mb-4">TG Master Alumni</h1>
-                    <p class="lead mb-4">Rejoignez la communauté des anciens étudiants de TG Master et restez connectés à votre alma mater</p>
+                    <h1 class="display-4 fw-bold mb-4">TgMaster Alumni</h1>
+                    <p class="lead mb-4">Rejoignez la communauté des anciens étudiants de TgMaster et restez connectés à votre alma mater</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="#rejoindre" class="btn btn-light btn-lg">Rejoindre le réseau</a>
                         <a href="#evenements" class="btn btn-outline-light btn-lg">Événements à venir</a>
@@ -257,11 +257,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="https://via.placeholder.com/600x400?text=TG+Master+Alumni" alt="Équipe TG Master Alumni" class="img-fluid rounded-3 shadow">
+                        <img src="https://via.placeholder.com/600x400?text=TgMaster+Alumni" alt="Équipe TgMaster Alumni" class="img-fluid rounded-3 shadow">
                         <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 m-3 rounded">
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-quote-left fa-2x me-3"></i>
-                                <p class="mb-0 fst-italic">TG Master m'a donné les clés pour réussir ma carrière. Aujourd'hui, je suis fier de faire partie de cette communauté qui continue de grandir.</p>
+                                <p class="mb-0 fst-italic">TgMaster m'a donné les clés pour réussir ma carrière. Aujourd'hui, je suis fier de faire partie de cette communauté qui continue de grandir.</p>
                             </div>
                             <div class="text-end mt-2">
                                 <strong>Koffi Adjo</strong><br>
@@ -280,7 +280,7 @@
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-title">Avantages du réseau</h2>
-                    <p class="lead">Découvrez les bénéfices de rejoindre la communauté TG Master Alumni</p>
+                    <p class="lead">Découvrez les bénéfices de rejoindre la communauté TgMaster Alumni</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -585,9 +585,23 @@
         </div>
     </section>
 
-    <!-- Footer (à inclure depuis le fichier principal) -->
-    
+    <!-- Conteneur pour le footer -->
+    <div id="footer-container"></div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    
+    <script>
+        // Initialiser AOS lorsque le DOM est chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

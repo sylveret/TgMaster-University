@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe - TgMaster</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #03224c;
+            --secondary-color: #0d6efd;
+            --accent-color: #20c997;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .team-member h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .team-member .position {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .social-links a {
+            color: var(--primary-color);
+            margin: 0 5px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (à inclure depuis le fichier principal) -->
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Notre Équipe</h1>
+                    <p class="lead">Découvrez les membres passionnés qui font de TG Master une institution d'excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe de Direction -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Équipe de Direction</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Directeur Général">
+                        <h3>Dr. Jean Koffi</h3>
+                        <p class="position">Directeur Général</p>
+                        <p>Expert en management stratégique avec plus de 15 ans d'expérience dans l'enseignement supérieur.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Directrice Pédagogique">
+                        <h3>Dr. Aïcha Traoré</h3>
+                        <p class="position">Directrice Pédagogique</p>
+                        <p>Docteure en Sciences de l'Éducation, spécialisée dans les méthodes d'apprentissage innovantes.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Directeur des Relations Entreprises">
+                        <h3>M. Kwame N'Guessan</h3>
+                        <p class="position">Directeur des Relations Entreprises</p>
+                        <p>Expert en développement des partenariats et insertion professionnelle des diplômés.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corps Professoral -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Notre Corps Professoral</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Professeure">
+                        <h4>Dr. Fatou Diop</h4>
+                        <p class="position">Marketing Digital</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Professeur">
+                        <h4>Dr. Yannick Kouamé</h4>
+                        <p class="position">Finance d'Entreprise</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/35.jpg" alt="Professeure">
+                        <h4>Dr. Aminata Bamba</h4>
+                        <p class="position">Ressources Humaines</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Professeur">
+                        <h4>Dr. Ibrahim Konaté</h4>
+                        <p class="position">Stratégie d'Entreprise</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Voir tout le corps professoral</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe Administrative -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Équipe Administrative</h2>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Service Scolarité">
+                        <h5>Mariam Koné</h5>
+                        <p class="position">Service Scolarité</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Service des Stages">
+                        <h5>Ousmane Traoré</h5>
+                        <p class="position">Service des Stages</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Service des Relations Internationales">
+                        <h5>Adjoa N'Guessan</h5>
+                        <p class="position">Relations Internationales</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Service Communication">
+                        <h5>Koffi Kouamé</h5>
+                        <p class="position">Service Communication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Rejoignez Notre Équipe</h2>
+            <p class="lead mb-4">Vous souhaitez faire partie de notre équipe dynamique et contribuer à l'excellence de TG Master ?</p>
+            <a href="#" class="btn btn-light btn-lg">Voir nos offres d'emploi</a>
+        </div>
+    </section>
+
+    <!-- Conteneur pour le footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    
+    <script>
+        // Initialiser AOS lorsque le DOM est chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
