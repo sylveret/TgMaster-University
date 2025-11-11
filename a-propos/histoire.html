@@ -371,26 +371,7 @@
 
     <!-- Chargement du footer -->
     <script>
-        // Fonction pour charger le footer
-        function loadFooter() {
-            fetch('../includes/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-content').innerHTML = data;
-                })
-                .catch(error => console.error('Erreur lors du chargement du footer:', error));
-        }
 
-        // Charger le footer lorsque le DOM est chargé
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFooter();
-            // Initialiser AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-        });
     </script>
 </body>
 </html>
